@@ -4,6 +4,7 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:ticketbooking/utils/size.dart';
 import 'package:ticketbooking/utils/theme.dart';
+import 'package:ticketbooking/widgets/flight_card.dart';
 import 'package:ticketbooking/widgets/hotel_card.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -60,7 +61,7 @@ class HomeScreen extends StatelessWidget {
             ),
             Padding(
               padding: EdgeInsets.symmetric(
-                horizontal: size(context).width * 0.057,
+                horizontal: size(context).width * 0.045,
                 vertical: size(context).width * 0.0,
               ),
               child: Column(
@@ -90,327 +91,38 @@ class HomeScreen extends StatelessWidget {
                     height: devicesize.height * 0.01,
                   ),
                   Container(
-                    width: devicesize.height * 0.43,
-                    height: devicesize.height * 0.095,
-                    decoration: BoxDecoration(
-                      color: Theme.of(context).colorScheme.primary,
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(
-                          devicesize.height * 0.025,
+                    height: devicesize.height * 0.25,
+                    width: double.infinity,
+                    child: ListView(
+                      scrollDirection: Axis.horizontal,
+                      children: [
+                        const FlightCard(
+                          originShort: 'NYC',
+                          origin: 'NewYork',
+                          hour: '8',
+                          min: '30',
+                          destination: 'London',
+                          destinationShort: 'LDN',
+                          date: '1 May',
+                          time: '08:00 AM',
+                          number: '23',
                         ),
-                        topRight: Radius.circular(
-                          devicesize.height * 0.025,
+                        SizedBox(width: devicesize.height * 0.015),
+                        const FlightCard(
+                          originShort: 'KTM',
+                          origin: 'Kathmandu',
+                          hour: '15',
+                          min: '30',
+                          destination: 'Finland',
+                          destinationShort: 'FIN',
+                          date: '2 Sept',
+                          time: '03:00 AM',
+                          number: '16',
                         ),
-                      ),
+                        SizedBox(width: devicesize.height * 0.015),
+                      ],
                     ),
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(
-                        vertical: devicesize.height * 0.018,
-                        horizontal: devicesize.height * 0.027,
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'NYC',
-                                style: AppTheme().textTheme.subtitle1!.copyWith(
-                                      color: Theme.of(context)
-                                          .colorScheme
-                                          .onPrimary,
-                                      fontSize: devicesize.height * 0.028,
-                                    ),
-                              ),
-                              Text(
-                                'New-York',
-                                style: AppTheme().textTheme.subtitle1!.copyWith(
-                                      color: Theme.of(context)
-                                          .colorScheme
-                                          .onPrimary,
-                                      fontSize: devicesize.height * 0.02,
-                                    ),
-                              )
-                            ],
-                          ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Row(
-                                children: [
-                                  Icon(
-                                    Icons.circle_outlined,
-                                    color: Colors.white,
-                                    size: devicesize.height * 0.015,
-                                  ),
-                                  Icon(
-                                    FluentSystemIcons.ic_fluent_airplane_filled,
-                                    color: Colors.white,
-                                    size: devicesize.height * 0.03,
-                                  ),
-                                  Icon(
-                                    Icons.circle_outlined,
-                                    color: Colors.white,
-                                    size: devicesize.height * 0.015,
-                                  )
-                                ],
-                              ),
-                              Text(
-                                '8H 30M',
-                                style: AppTheme().textTheme.subtitle1!.copyWith(
-                                      color: Theme.of(context)
-                                          .colorScheme
-                                          .onPrimary,
-                                      fontSize: devicesize.height * 0.02,
-                                    ),
-                              )
-                            ],
-                          ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.end,
-                            children: [
-                              Text(
-                                'LDN',
-                                style: AppTheme().textTheme.subtitle1!.copyWith(
-                                      color: Theme.of(context)
-                                          .colorScheme
-                                          .onPrimary,
-                                      fontSize: devicesize.height * 0.028,
-                                    ),
-                              ),
-                              Text(
-                                'London',
-                                style: AppTheme().textTheme.subtitle1!.copyWith(
-                                      color: Theme.of(context)
-                                          .colorScheme
-                                          .onPrimary,
-                                      fontSize: devicesize.height * 0.02,
-                                    ),
-                              )
-                            ],
-                          )
-                        ],
-                      ),
-                    ),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Stack(
-                        alignment: Alignment.bottomLeft,
-                        children: [
-                          Container(
-                            width: devicesize.height * 0.2158,
-                            height: devicesize.height * 0.017,
-                            decoration: BoxDecoration(
-                              color: Theme.of(context).colorScheme.primary,
-                            ),
-                          ),
-                          Container(
-                            width: devicesize.height * 0.028,
-                            height: devicesize.height * 0.017,
-                            decoration: BoxDecoration(
-                              color: Theme.of(context).colorScheme.onPrimary,
-                              border: Border.all(
-                                width: 0,
-                                color: Colors.white,
-                              ),
-                              borderRadius: BorderRadius.only(
-                                topRight: Radius.circular(
-                                  devicesize.height * 0.025,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                      Stack(
-                        alignment: Alignment.topRight,
-                        children: [
-                          Container(
-                            width: devicesize.height * 0.20,
-                            height: devicesize.height * 0.017,
-                            decoration: BoxDecoration(
-                              color: Theme.of(context).colorScheme.primary,
-                            ),
-                          ),
-                          Container(
-                            width: devicesize.height * 0.028,
-                            height: devicesize.height * 0.017,
-                            decoration: BoxDecoration(
-                              color: Theme.of(context).colorScheme.onPrimary,
-                              border: Border.all(
-                                width: 0,
-                                color: Colors.white,
-                              ),
-                              borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(
-                                  devicesize.height * 0.025,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Stack(
-                        alignment: Alignment.bottomLeft,
-                        children: [
-                          Container(
-                            width: devicesize.height * 0.20,
-                            height: devicesize.height * 0.017,
-                            decoration: BoxDecoration(
-                              color: Theme.of(context).colorScheme.error,
-                            ),
-                          ),
-                          Container(
-                            width: devicesize.height * 0.028,
-                            height: devicesize.height * 0.017,
-                            decoration: BoxDecoration(
-                              color: Theme.of(context).colorScheme.onPrimary,
-                              border: Border.all(
-                                width: 0,
-                                color: Colors.white,
-                              ),
-                              borderRadius: BorderRadius.only(
-                                bottomRight: Radius.circular(
-                                  devicesize.height * 0.025,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                      Stack(
-                        alignment: Alignment.topRight,
-                        children: [
-                          Container(
-                            width: devicesize.height * 0.215,
-                            height: devicesize.height * 0.017,
-                            decoration: BoxDecoration(
-                              color: Theme.of(context).colorScheme.error,
-                            ),
-                          ),
-                          Container(
-                            width: devicesize.height * 0.028,
-                            height: devicesize.height * 0.017,
-                            decoration: BoxDecoration(
-                              color: Theme.of(context).colorScheme.onPrimary,
-                              border: Border.all(
-                                width: 0,
-                                color: Colors.white,
-                              ),
-                              borderRadius: BorderRadius.only(
-                                bottomLeft: Radius.circular(
-                                  devicesize.height * 0.025,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                  Container(
-                    width: devicesize.height * 0.43,
-                    height: devicesize.height * 0.077,
-                    decoration: BoxDecoration(
-                      color: Theme.of(context).colorScheme.error,
-                      borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(
-                          devicesize.height * 0.025,
-                        ),
-                        bottomRight: Radius.circular(
-                          devicesize.height * 0.025,
-                        ),
-                      ),
-                    ),
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(
-                        vertical: devicesize.height * 0.0045,
-                        horizontal: devicesize.height * 0.025,
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                '1 May',
-                                style: AppTheme().textTheme.subtitle1!.copyWith(
-                                      color: Theme.of(context)
-                                          .colorScheme
-                                          .onPrimary,
-                                      fontSize: devicesize.height * 0.025,
-                                    ),
-                              ),
-                              Text(
-                                'Date',
-                                style: AppTheme().textTheme.subtitle1!.copyWith(
-                                      color: Theme.of(context)
-                                          .colorScheme
-                                          .onPrimary,
-                                      fontSize: devicesize.height * 0.018,
-                                    ),
-                              )
-                            ],
-                          ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Text(
-                                '08:00 AM',
-                                style: AppTheme().textTheme.subtitle1!.copyWith(
-                                      color: Theme.of(context)
-                                          .colorScheme
-                                          .onPrimary,
-                                      fontSize: devicesize.height * 0.025,
-                                    ),
-                              ),
-                              Text(
-                                'Departure Time',
-                                style: AppTheme().textTheme.subtitle1!.copyWith(
-                                      color: Theme.of(context)
-                                          .colorScheme
-                                          .onPrimary,
-                                      fontSize: devicesize.height * 0.018,
-                                    ),
-                              )
-                            ],
-                          ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.end,
-                            children: [
-                              Text(
-                                '23',
-                                style: AppTheme().textTheme.subtitle1!.copyWith(
-                                      color: Theme.of(context)
-                                          .colorScheme
-                                          .onPrimary,
-                                      fontSize: devicesize.height * 0.025,
-                                    ),
-                              ),
-                              Text(
-                                'Number',
-                                style: AppTheme().textTheme.subtitle1!.copyWith(
-                                      color: Theme.of(context)
-                                          .colorScheme
-                                          .onPrimary,
-                                      fontSize: devicesize.height * 0.018,
-                                    ),
-                              )
-                            ],
-                          )
-                        ],
-                      ),
-                    ),
-                  ),
+                  )
                 ],
               ),
             ),
