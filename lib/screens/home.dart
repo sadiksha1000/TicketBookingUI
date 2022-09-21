@@ -4,6 +4,7 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:ticketbooking/utils/size.dart';
 import 'package:ticketbooking/utils/theme.dart';
+import 'package:ticketbooking/widgets/hotel_card.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -228,7 +229,7 @@ class HomeScreen extends StatelessWidget {
                         alignment: Alignment.topRight,
                         children: [
                           Container(
-                            width: devicesize.height * 0.215,
+                            width: devicesize.height * 0.20,
                             height: devicesize.height * 0.017,
                             decoration: BoxDecoration(
                               color: Theme.of(context).colorScheme.primary,
@@ -261,7 +262,7 @@ class HomeScreen extends StatelessWidget {
                         alignment: Alignment.bottomLeft,
                         children: [
                           Container(
-                            width: devicesize.height * 0.2158,
+                            width: devicesize.height * 0.20,
                             height: devicesize.height * 0.017,
                             decoration: BoxDecoration(
                               color: Theme.of(context).colorScheme.error,
@@ -416,26 +417,52 @@ class HomeScreen extends StatelessWidget {
             Padding(
               padding: EdgeInsets.symmetric(
                 horizontal: size(context).width * 0.057,
-                vertical: size(context).width * 0.05,
+                vertical: size(context).width * 0.057,
               ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.center,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    'Hotels',
-                    style: AppTheme().textTheme.subtitle2!.copyWith(
-                          fontSize: devicesize.height * 0.023,
-                          fontWeight: FontWeight.bold,
-                        ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Hotels',
+                        style: AppTheme().textTheme.subtitle2!.copyWith(
+                              fontSize: devicesize.height * 0.023,
+                              fontWeight: FontWeight.bold,
+                            ),
+                      ),
+                      Text(
+                        'View all',
+                        style: AppTheme().textTheme.subtitle2!.copyWith(
+                              fontSize: devicesize.height * 0.0198,
+                              color: Theme.of(context).colorScheme.primary,
+                            ),
+                      )
+                    ],
                   ),
-                  Text(
-                    'View all',
-                    style: AppTheme().textTheme.subtitle2!.copyWith(
-                          fontSize: devicesize.height * 0.0198,
-                          color: Theme.of(context).colorScheme.primary,
-                        ),
-                  )
+                  SizedBox(height: devicesize.height * 0.015),
+                  Container(
+                    height: devicesize.height * 0.27,
+                    child: ListView(
+                      scrollDirection: Axis.horizontal,
+                      children: const [
+                        Hotelcard(
+                            hotelUrl:
+                                "https://pix10.agoda.net/hotelImages/124/1246280/1246280_16061017110043391702.jpg?ca=6&ce=1&s=1024x768"),
+                        Hotelcard(
+                            hotelUrl:
+                                "https://cdn.britannica.com/96/115096-050-5AFDAF5D/Bellagio-Hotel-Casino-Las-Vegas.jpg"),
+                        Hotelcard(
+                            hotelUrl:
+                                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNtjcbeobPeIBoY3L8srq69glC2CCNucKrYg&usqp=CAU"),
+                        Hotelcard(
+                            hotelUrl:
+                                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQu839nsXjyzcl3LfblX3YsQiysoDLDFrxdkw&usqp=CAU")
+                      ],
+                    ),
+                  ),
                 ],
               ),
             )
