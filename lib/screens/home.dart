@@ -64,6 +64,48 @@ class HomeScreen extends StatelessWidget {
                 horizontal: size(context).width * 0.045,
                 vertical: size(context).width * 0.0,
               ),
+              child: Container(
+                height: devicesize.height * 0.05,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  border: Border.all(
+                    color: AppTheme().colorScheme.secondary,
+                    style: BorderStyle.solid,
+                  ),
+                  borderRadius: BorderRadius.all(
+                      Radius.circular(devicesize.height * 0.015)),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.only(
+                        left: devicesize.height * 0.015,
+                      ),
+                      child: Text(
+                        'Search',
+                        style: AppTheme().textTheme.subtitle2!.copyWith(
+                              fontSize: devicesize.height * 0.021,
+                              color: Colors.grey,
+                              fontWeight: FontWeight.bold,
+                            ),
+                      ),
+                    ),
+                    const Icon(
+                      Icons.search,
+                      color: Colors.grey,
+                    )
+                  ],
+                ),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(
+                left: size(context).width * 0.045,
+                right: size(context).width * 0.045,
+                top: size(context).width * 0.05,
+              ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -129,7 +171,7 @@ class HomeScreen extends StatelessWidget {
             Padding(
               padding: EdgeInsets.symmetric(
                 horizontal: size(context).width * 0.057,
-                vertical: size(context).width * 0.057,
+                // vertical: size(context).width * 0.057,
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
